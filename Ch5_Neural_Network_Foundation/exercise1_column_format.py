@@ -1,25 +1,16 @@
-e"""
-https://iamtrask.github.io/2015/07/12/basic-python-network/
-
-
-Column format, an example is a column in X
-"""
 import numpy as np
 X = np.array([[0,0,1], [0,1,1], [1,0,1], [1,1,1]]).T
 y = np.array([0, 1, 1, 1])
-# print(X.shape, X[0])
-# exit()
+
 def sigmoid(x):
     return 1. / (1. + np.exp(-x))
 
 def sigmoid_prime(x):
     return sigmoid(x) * (1. - sigmoid(x))
-    # return x*(1-x)
 
 def get_weights(shape=()):
     np.random.seed(seed=0)
     return np.random.normal(loc=0.0, scale=0.001, size=shape)
-
 
 class Network(object):
     def __init__(self, lr=0.01):
@@ -27,9 +18,6 @@ class Network(object):
         self.b1 = get_weights((4, 1))
         self.W2 = get_weights((1, 4))
         self.b2 = get_weights((1, 1))
-        # print(self.W.shape, self.b.shape)
-        self.weights = [self.W1, self.b1, self.W2, self.b2]
-        # self.optimizer = SGDOptimizer(0.001)
         self.lr = lr
 
     def backward(self, X_batch, y_batch):
@@ -103,4 +91,4 @@ for i in range(100):
 
 
 
-#
+
