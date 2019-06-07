@@ -69,7 +69,7 @@ def _map_fn_test(img, target):
 
 - Solution is [here](https://github.com/tensorlayer/tensorlayer/blob/master/examples/basic_tutorials/tutorial_cifar10_cnn_static.py)
 
-## Exercise 2: : Choice an CV application and implement it. (Optional) 
+## Exercise 2: Choice an CV application and implement it. (Optional) 
 
 You can propose an application or choice one on below:
 - [OpenPose](https://github.com/tensorlayer/openpose-plus)
