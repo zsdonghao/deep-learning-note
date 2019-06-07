@@ -1,12 +1,13 @@
-### Exercise 1: Implement the DCGAN
+### Exercise 1: DCGAN
 
 - Implement the `train.py` of [this repo](https://github.com/tensorlayer/dcgan) from scratch.
 
-### Exercise 2: Study and Explain W-GAN
+### Exercise 2: W-GAN
 
+- Study W-GAN
 - Change the DCGAN loss to W-GAN and see the result.
 
-### Exercise 3: Choice an application and implement it (Optional)
+### Exercise 3: GAN Project (Optional)
 You can propose a GAN application or choice one on below:
 
 - [CycleGAN](https://github.com/luoxier/CycleGAN_Tensorlayer)
