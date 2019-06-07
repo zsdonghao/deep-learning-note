@@ -56,7 +56,8 @@ def _map_fn_train(img, target):
 ```
 
 - Testing details, crop the central part (`24x24x3`) of the image as the input.
-```
+
+```python
 def _map_fn_test(img, target):
     # 1. Crop the central [height, width] of the image.
     img = tf.image.resize_image_with_crop_or_pad(img, 24, 24)
