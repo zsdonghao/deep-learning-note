@@ -1,7 +1,7 @@
 ### Exercise 1: Sparse Autoencoder
 - Implement Sparse Autoencoder on MNIST and visualize the learned features.
 
-### Exercise 2:
+### Exercise 2: Variational Autoencoder
 - Explain Variational Autoencoder in mathematical way
 - Implement it on MNIST (Optional)
 
