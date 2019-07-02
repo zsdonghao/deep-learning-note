@@ -10,7 +10,7 @@
 ### Exercise 3: GAN Project (Optional)
 You can propose a GAN application or choice one on below:
 
-- [CycleGAN](https://github.com/luoxier/CycleGAN_Tensorlayer)
+- [CycleGAN](https://github.com/tensorlayer/cyclegan)
 - [Attention CycleGAN](https://arxiv.org/pdf/1806.02311.pdf)
 - [Text2Image](https://github.com/zsdonghao/text-to-image)
 - [HoloGAN]
