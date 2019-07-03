@@ -1,19 +1,24 @@
 import numpy as np
+
+# training data
 X = np.array([[0,0,1], [0,1,1], [1,0,1], [1,1,1]])
 y = np.array([[0], [1], [1], [1]])
 
+# sigmoid function and its derivative
 def sigmoid(x):
     return 1. / (1. + np.exp(-x))
 
 def sigmoid_prime(x):
     return sigmoid(x) * (1. - sigmoid(x))
 
+# weight initialization function
 def get_weights(shape=()):
     np.random.seed(seed=0)
-    return np.random.normal(loc=0.0, scale=0.001, size=shape, )
+    return np.random.normal(loc=0.0, scale=0.001, size=shape)
 
 class Network(object):
     def __init__(self, lr=0.01):
+        # initialize the network weights
         self.W1 = get_weights((3, 4))
         self.b1 = get_weights((4))
         self.W2 = get_weights((4, 1))
@@ -30,25 +35,27 @@ class Network(object):
         self.grads_W1 = np.zeros_like(self.W1)
         self.grads_b1 = np.zeros_like(self.b1)
 
+        # compute the gradients using a batch of training data
         for x, y in zip(X_batch, y_batch):
-            ## forward
+            # feedforward propagation
             z1  = np.matmul(x, self.W1) + self.b1 # z^{L-1}
             a1  = sigmoid(z1) # a^{L-1}
             z2  = np.matmul(a1, self.W2) + self.b2 # z^{L}
             a2 = sigmoid(z2) # a^{L}
 
-            ## loss
+            # compute loss
             # 1 : mse
             # loss = 1/2 * np.mean((y-a2)**2) # d_C/ d_a^{L} = (a^{L} - y)
-            # delta_L = "todo"
             # 2 : abs
             # loss = np.mean(abs(y - a2))  # |x|' = (1 if x>0 else -1)
-            # delta_L = "todo"
             # 3 : sigmoid cross entropy (logistic regression)
             loss = - (y*np.log(a2) + (1-y)*np.log(1-a2)) 
-            delta_L = "todo"
-
-            delta_l = "todo"
+            
+            # compute intermediate results (error)
+            delta_L = "todo"   # error of the output layer
+            delta_l = "todo"   # error of the hidden layer (we only have 1 hidden layer in this case)
+            
+            # compute gradients
             self.grads_W2 += "todo"
             self.grads_b2 += "todo"
             self.grads_W1 += "todo"
@@ -66,6 +73,7 @@ class Network(object):
         batch_acc /= batch_size
         print("loss:{} batch_acc:{} batch_size:{} lr:{}".format(batch_loss, batch_acc, batch_size, self.lr))
 
+        # update weights
         self.W2 -= self.lr * self.grads_W2
         self.b2 -= self.lr * self.grads_b2
         self.W1 -= self.lr * self.grads_W1
@@ -73,7 +81,7 @@ class Network(object):
 
 net = Network(lr=10)
 
-for i in range(10000):
+for i in range(100):
     net.backward(X, y)
 
 
