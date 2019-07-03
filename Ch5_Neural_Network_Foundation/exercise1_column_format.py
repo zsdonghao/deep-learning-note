@@ -30,6 +30,14 @@ class Network(object):
         self.b2 = get_weights((1, 1))
         self.lr = lr
 
+    def forward(self, x):
+        # feedforward function
+        z1  = np.matmul(self.W1, x) + self.b1 # z^{L-1}
+        a1  = sigmoid(z1) # a^{L-1}
+        z2  = np.matmul(self.W2, a1) + self.b2 # z^{L}
+        a2 = sigmoid(z2) # a^{L}
+        return z1, a1, z2, a2
+    
     def backward(self, X_batch, y_batch):
         batch_size = 0
         batch_loss = 0
@@ -47,10 +55,7 @@ class Network(object):
             y = y_batch[i]
 
             # feedforward propagation
-            z1  = np.matmul(self.W1, x) + self.b1 # z^{L-1}
-            a1  = sigmoid(z1) # a^{L-1}
-            z2  = np.matmul(self.W2, a1) + self.b2 # z^{L}
-            a2 = sigmoid(z2) # a^{L}
+            z1, a1, z2, a2 = self.forward(x)
 
             # compute loss
             # 1 : mse
