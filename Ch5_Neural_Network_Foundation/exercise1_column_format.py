@@ -1,5 +1,5 @@
 """
-1. Implement the "todo" parts.
+1. Implement the "todo" parts and make the training converge.
 2. Try different loss functions.
 """
 
