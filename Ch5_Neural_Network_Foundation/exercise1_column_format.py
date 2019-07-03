@@ -83,11 +83,12 @@ class Network(object):
         self.W1 -= self.lr * self.grads_W1
         self.b1 -= self.lr * self.grads_b1
 
+# instantiate a network
 net = Network(lr=10)
 
+# update the network
 for i in range(100):
-    net.backward(X, y)
-
+    net.backward(X, y) # input a batch of training data
 
 
 
