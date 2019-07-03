@@ -1,3 +1,8 @@
+"""
+1. Implement the "todo" parts.
+2. Try different loss functions.
+"""
+
 import numpy as np
 
 # training data
